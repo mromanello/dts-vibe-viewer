@@ -1,0 +1,369 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.16.4 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Distributed Text Services (DTS) - Distributed Text Services</title>
+<meta name="description" content="The Distributed Text Services (DTS) Specification defines a Hypermedia-Driven Web API for working with collections of text as machine-actionable data.">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Distributed Text Services">
+<meta property="og:title" content="Distributed Text Services (DTS)">
+<meta property="og:url" content="https://distributed-text-services.github.io/specifications/">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://distributed-text-services.github.io/specifications/">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/specifications/feed.xml" type="application/atom+xml" rel="alternate" title="Distributed Text Services Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/specifications/assets/css/main.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/specifications/">Distributed Text Services</a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/specifications/versions/1.0rc1/" >API Documentation</a>
+            </li><li class="masthead__menu-item">
+              <a href="/specifications/Organization.html" >Organization</a>
+            </li><li class="masthead__menu-item">
+              <a href="/specifications/Cookbook.html" >Cookbook</a>
+            </li><li class="masthead__menu-item">
+              <a href="/specifications/FAQ.html" >FAQ</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://distributed-text-services.github.io/workshops" >Workshops</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<!-- Really hacky -->
+<style type="text/css">
+
+	.sidebar p, .sidebar li {
+		font-size: 1em!important;
+	}
+
+	.page__content h1:first-of-type {
+		opacity: 0;
+	}
+</style>
+<!-- end really hacky -->
+
+<div id="main" role="main">
+  
+	  <div class="sidebar ">
+        <nav class="toc">
+          <header><h4 class="nav__title"><i class="fas fa-cog"></i> Table of Contents</h4></header>
+          <ul class="toc__menu">
+  <li><a href="#distributed-text-services-dts">Distributed Text Services (DTS)</a>
+    <ul>
+      <li><a href="#distributed-text-services-10-release-candidate-published--july-11-2025">Distributed Text Services 1.0 Release Candidate Published – July 11, 2025</a></li>
+      <li><a href="#what-is-dts">What is DTS?</a></li>
+      <li><a href="#supported-operations">Supported Operations</a></li>
+      <li><a href="#capabilities">Capabilities</a></li>
+      <li><a href="#generic-implementations">Generic Implementations</a></li>
+      <li><a href="#conformance-evaluation">Conformance Evaluation</a></li>
+      <li><a href="#known-corpora-accessible-via-the-dts-api">Known Corpora Accessible via the DTS API</a></li>
+    </ul>
+  </li>
+</ul>
+        </nav>
+	  </div>
+  
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Distributed Text Services (DTS)">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Distributed Text Services (DTS)
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h1 id="distributed-text-services-dts">Distributed Text Services (DTS)</h1>
+
+<p><a href="https://groups.google.com/forum/#!forum/distributed-text-services" class="btn btn--info btn--x--small"><i class="fa fa-comments"></i> Google group</a>
+<a href="https://github.com/distributed-text-services/specifications/issues" class="btn btn--info btn--x--small"><i class="fa fa-bug"></i> Raise Issues and Ask Questions</a>
+<a href="https://github.com/distributed-text-services/specifications" class="btn btn--info btn--x--small"><i class="fa fa-file-code"></i> Check Source and Propose Changes</a></p>
+
+<h2 id="distributed-text-services-10-release-candidate-published--july-11-2025">Distributed Text Services 1.0 Release Candidate Published – July 11, 2025</h2>
+
+<p>After years of development, independent implementations, interoperability testing, and a public comment period, the Distributed Text Services Technical Committee is pleased to announce the publication of the Distributed Text Services 1.0 Release Candidate (RC1).</p>
+
+<p>We strongly encourage you to implement DTS now and share your feedback. The specification is feature-complete and stable, and we expect only minor clarifications before the final 1.0 release in three months (11/10/2025). Early adoption will ensure your projects are ready and help the community validate the standard in real-world use.</p>
+
+<h2 id="what-is-dts">What is DTS?</h2>
+
+<p><strong>The Distributed Text Services (DTS) Specification defines an API for working with collections of text as machine-actionable data.</strong></p>
+
+<p>Publishers of digital text collections can use the DTS API to help them make their textual data Findable, Accessible, Interoperable and Reusable (FAIR).</p>
+
+<p>DTS enables <em>machine-consumption</em> of digital text collections, and can be used by consumers of these collections in a variety of ways, such as for data analysis and the development of user-interfaces, tools and services.</p>
+
+<p>DTS is a <em>specification</em> for an API and not in and of itself an implementation of that API. Reference Implementations are available (see below) and individual text publishers are encouraged to implement this API in their own projects where appropriate.</p>
+
+<p>See the <a href="FAQ.html">FAQ</a> for more information and a list of frequently asked questions about DTS.</p>
+
+<h2 id="supported-operations">Supported Operations</h2>
+
+<p>DTS specifies 3 distinct operation endpoints:</p>
+
+<ul>
+  <li>Navigation <em>across texts</em> is supported by the <a href="versions/1.0rc1/#collection-endpoint">Collection Endpoint</a></li>
+  <li>Navigation <em>within a text</em> is supported by the <a href="versions/1.0rc1/#navigation-endpoint">Navigation Endpoint</a></li>
+  <li>Retrieval of complete or partial texts is supported by the <a href="versions/1.0rc1/#document-endpoint">Document Endpoint</a></li>
+</ul>
+
+<p>The Collection and Navigation endpoints return JSON-LD. The Document endpoint is specified to return TEI/XML of the requested text or fragment.</p>
+
+<h2 id="capabilities">Capabilities</h2>
+
+<p>The DTS API provides the following core capabilities to clients:</p>
+
+<ul>
+  <li>Retrieve lists of collection members</li>
+  <li>Retrieve metadata about individual collection items</li>
+  <li>Retrieve lists of citeable passages within a text</li>
+  <li>Retrieve metadata about the citation structure of a document</li>
+  <li>Retrieve a single text passage at any level of the citation hierarchy</li>
+  <li>Retrieve a range of text passages with a clearly defined start and end passage</li>
+  <li>Retrieve an entire text</li>
+</ul>
+
+<h2 id="generic-implementations">Generic Implementations</h2>
+
+<p>This list includes implementations that should be generic enough to be compatible with a lot of different corpora.</p>
+
+<ul>
+  <li><a href="https://github.com/distributed-text-services/MyDapytains">MyDapytains</a> is a python implementation by a member of the technical committee which uses Flask for web and SaxonC implementation for XPath, XSLT and XQuery.</li>
+  <li><a href="https://github.com/chartes/dots">DoTS</a> is an implementation from Biblissima + &amp; the Ecole nationale des chartes built on top of BaseX.</li>
+  <li><a href="https://github.com/SCDH/dts-transformations">SCDH/dts-transformations</a> is a XSLT-based implementation based on CiteStructure for document and navigation endpoints.</li>
+</ul>
+
+<h2 id="conformance-evaluation">Conformance Evaluation</h2>
+
+<p>Matteo Romanello built a toolkit to evaluate implementation against the specifications: <a href="https://github.com/mromanello/DTS-validator">https://github.com/mromanello/DTS-validator</a>.</p>
+
+<h2 id="known-corpora-accessible-via-the-dts-api">Known Corpora Accessible via the DTS API</h2>
+
+<p>The following open access libraries implement the DTS API :</p>
+
+<ul>
+  <li>(1.0rc1) CoMMA <a href="https://comma.inria.fr">https://comma.inria.fr</a></li>
+  <li>(1.0rc1) Dracor <a href="https://dev.dracor.org/api/v1/dts">https://dev.dracor.org/api/v1/dts</a></li>
+  <li>(1.0-alpha) Ecole Nationale des Chartes <a href="https://dots.chartes.psl.eu/demo/api/dts/">https://dots.chartes.psl.eu/demo/api/dts/</a>
+    <ul>
+      <li>A small collection of contemporaneous and medieval French literature. The contemporaneous texts are lightly marked up, and the medieval texts are finely annotated.  Uses the MyCapytain/Nautilus libraries.</li>
+    </ul>
+  </li>
+  <li>(1.0 Draft) Alpheios <a href="http://texts.alpheios.net/api/dts">http://texts.alpheios.net/api/dts</a>
+    <ul>
+      <li>A small collection of Latin and Greek texts that have been aligned with linguistic annotations for learning ancient languages. Uses the MyCapytain/Nautilus libraries.</li>
+    </ul>
+  </li>
+  <li>(1.0 Draft) Perseids <a href="https://dts.perseids.org/">https://dts.perseids.org/</a>
+    <ul>
+      <li>Serves all textual resources available from Perseus within the Ancient Greek and Latin corpora as well as some resources in Hebrew and Farsi.</li>
+    </ul>
+  </li>
+  <li>(1.0 Draft) Beta maṣāḥǝft <a href="http://betamasaheft.eu/">http://betamasaheft.eu/</a>
+    <ul>
+      <li>Collection of written artefacts from the highlands of Ethiopia and Eritrea mainly in Gǝʿǝz (Classical Ethiopic). In the collection are present both transcriptions of manuscripts and editions of textual units. The scarce availability of transcriptions as well as available editions means that the actual text contents are few in comparison with the textual units and written artefacts identified and described.</li>
+    </ul>
+  </li>
+  <li>(1.0 Draft) Epigraphische Datenbank Heidelberg <a href="https://edh-www.adw.uni-heidelberg.de/api/dts/">https://edh-www.adw.uni-heidelberg.de/api/dts/</a>
+    <ul>
+      <li>A corpus of 80,000 short texts from the Latin epigraphic databases.</li>
+    </ul>
+  </li>
+</ul>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+      </footer>
+
+      <section class="page__share">
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Distributed+Text+Services+%28DTS%29%20https%3A%2F%2Fdistributed-text-services.github.io%2Fspecifications%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdistributed-text-services.github.io%2Fspecifications%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fdistributed-text-services.github.io%2Fspecifications%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><input type="search" id="search" aria-placeholder="Enter your search term..." class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+    <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    <li><a href="/specifications/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2025 Distributed Text Services. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/specifications/assets/js/main.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/specifications/assets/js/lunr/lunr.min.js"></script>
+<script src="/specifications/assets/js/lunr/lunr-store.js"></script>
+<script src="/specifications/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>
