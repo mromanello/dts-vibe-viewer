@@ -5,6 +5,7 @@
 
 import { useEffect, useRef } from 'react';
 import CETEI from 'CETEIcean';
+import '../../styles/CETEIcean.css';
 
 interface TEIRendererProps {
   content: string;
