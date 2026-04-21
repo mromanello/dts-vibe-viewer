@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { DTSProvider } from './context/DTSContext';
 import Layout from './components/layout/Layout';
 import EntryPage from './pages/EntryPage';
