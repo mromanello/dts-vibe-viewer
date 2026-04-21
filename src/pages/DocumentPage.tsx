@@ -139,7 +139,7 @@ export default function DocumentPage() {
 
       try {
         const entry = await fetchEntryPoint(urlParams.endpoint);
-        const endpointTemplates = extractEndpointTemplates(entry);
+        const endpointTemplates = extractEndpointTemplates(entry, urlParams.endpoint);
 
         setEntryPoint(urlParams.endpoint, entry);
         setEndpoints(endpointTemplates);

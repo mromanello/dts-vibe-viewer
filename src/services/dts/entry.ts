@@ -39,16 +39,36 @@ export async function fetchEntryPoint(url: string): Promise<EntryPoint> {
 }
 
 /**
- * Extract endpoint templates from Entry Point response
+ * Normalize a template URL's protocol to match the connection URL.
+ * Prevents mixed-content issues when a server advertises http:// templates
+ * but the user connected via https://.
+ */
+function normalizeProtocol(templateUrl: string, connectionUrl: string): string {
+  const connIsHttps = connectionUrl.startsWith('https://');
+  const tmplIsHttp = templateUrl.startsWith('http://');
+  if (connIsHttps && tmplIsHttp) {
+    return 'https://' + templateUrl.slice('http://'.length);
+  }
+  return templateUrl;
+}
+
+/**
+ * Extract endpoint templates from Entry Point response.
+ * @param entryPoint - The parsed entry point response
+ * @param connectionUrl - The URL the user used to connect (used to normalize protocol)
  */
 export function extractEndpointTemplates(
-  entryPoint: EntryPoint
+  entryPoint: EntryPoint,
+  connectionUrl?: string
 ): EndpointTemplates {
+  const norm = (url: string) =>
+    connectionUrl ? normalizeProtocol(url, connectionUrl) : url;
+
   return {
-    entry: entryPoint['@id'],
-    collection: entryPoint.collection,
-    navigation: entryPoint.navigation,
-    document: entryPoint.document,
+    entry: norm(entryPoint['@id']),
+    collection: norm(entryPoint.collection),
+    navigation: norm(entryPoint.navigation),
+    document: norm(entryPoint.document),
   };
 }
 

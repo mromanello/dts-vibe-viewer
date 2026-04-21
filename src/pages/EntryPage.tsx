@@ -70,7 +70,7 @@ function EntryPage() {
 
     try {
       const entry = await fetchEntryPoint(url);
-      const endpoints = extractEndpointTemplates(entry);
+      const endpoints = extractEndpointTemplates(entry, url);
 
       setEntryPoint(url, entry);
       setEndpoints(endpoints);
@@ -130,7 +130,7 @@ function EntryPage() {
 
       // Connect to endpoint
       const entry = await fetchEntryPoint(endpoint);
-      const endpoints = extractEndpointTemplates(entry);
+      const endpoints = extractEndpointTemplates(entry, endpoint);
 
       setEntryPoint(endpoint, entry);
       setEndpoints(endpoints);
